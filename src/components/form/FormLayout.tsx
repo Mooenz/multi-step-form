@@ -15,13 +15,13 @@ interface FormLayoutProps {
 
 export function FormLayout({ children }: FormLayoutProps) {
 	return (
-		<div className="flex min-h-dvh flex-col bg-page-background md:items-center md:justify-center md:p-6">
+		<div className="flex min-h-dvh flex-col bg-page-background md:items-center md:justify-center md:p-6 animate-slide-in-bottom duration-500 ease-in-out">
 			<MobileStepper />
 
-			<div className="relative z-10 mx-auto flex w-full max-w-form flex-1 flex-col md:mx-0 md:min-h-form md:flex-none md:overflow-hidden md:rounded-lg md:bg-surface md:shadow-[var(--shadow-card)] md:grid md:grid-cols-[274px_1fr] md:p-4 lg:max-w-235 overflow-x-auto">
+			<div className="relative z-10 mx-auto flex w-full max-w-form flex-1 flex-col md:mx-0 md:min-h-form md:flex-none md:overflow-hidden md:rounded-xl md:bg-surface md:shadow-(--shadow-card) md:grid md:grid-cols-[274px_1fr] md:p-4 lg:max-w-235 !bg-page-background px-4 md:px-0">
 				<Sidebar />
 
-				<div className="-mt-4 flex flex-1 flex-col rounded-t-lg bg-surface px-6 pb-0 pt-8 md:mt-0 md:rounded-none md:px-10 md:py-10 lg:px-25">
+				<div className="-mt-18 flex flex-col rounded-t-lg bg-surface px-6 py-8 md:mt-0 md:rounded-none md:px-10 md:py-10 lg:px-25  rounded-lg shadow-(--shadow-card) md:shadow-none mb-6">
 					<main className="flex flex-1 flex-col" aria-live="polite">
 						{children}
 					</main>
@@ -29,7 +29,7 @@ export function FormLayout({ children }: FormLayoutProps) {
 				</div>
 			</div>
 
-			<FormNavigation className="sticky bottom-0 mt-auto border-t border-neutral-border md:hidden" />
+			<FormNavigation className="mt-auto border-t border-neutral-border/30  md:hidden" />
 		</div>
 	);
 }
