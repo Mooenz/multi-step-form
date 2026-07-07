@@ -18,10 +18,10 @@ export function FormLayout({ children }: FormLayoutProps) {
 		<div className="flex min-h-dvh flex-col bg-page-background md:items-center md:justify-center md:p-6 animate-slide-in-bottom duration-500 ease-in-out">
 			<MobileStepper />
 
-			<div className="relative z-10 mx-auto flex w-full max-w-form flex-1 flex-col md:mx-0 md:min-h-form md:flex-none md:overflow-hidden md:rounded-xl md:bg-surface md:shadow-(--shadow-card) md:grid md:grid-cols-[274px_1fr] md:p-4 lg:max-w-235 !bg-page-background px-4 md:px-0">
+			<div className="relative z-10 mx-auto flex w-full max-w-form flex-1 flex-col md:mx-0 md:min-h-form md:flex-none md:overflow-hidden md:rounded-xl md:!bg-surface md:shadow-(--shadow-card) md:grid md:grid-cols-[274px_1fr] md:p-4 lg:max-w-235 !bg-page-background px-4">
 				<Sidebar />
 
-				<div className="-mt-18 flex flex-col rounded-t-lg bg-surface px-6 py-8 md:mt-0 md:rounded-none md:px-10 md:py-10 lg:px-25  rounded-lg shadow-(--shadow-card) md:shadow-none mb-6">
+				<div className="-mt-18 flex flex-col rounded-t-lg bg-surface px-6 py-8 md:mt-0 md:rounded-none md:px-10 md:py-10 lg:px-25  rounded-lg shadow-(--shadow-card) md:shadow-none mb-6 max-w-4xl md:max-w-none mx-auto">
 					<main className="flex flex-1 flex-col" aria-live="polite">
 						{children}
 					</main>
