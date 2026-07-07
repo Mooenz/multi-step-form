@@ -1,129 +1,164 @@
-# Frontend Mentor - Multi-step form solution
+# Frontend Mentor — Multi-step form
 
-This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+Solución al reto [Multi-step form](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ) de Frontend Mentor.
 
-## Table of contents
+Formulario de suscripción a una plataforma de gaming en cuatro pasos, con pantalla de confirmación final. Implementado con React, TypeScript, Vite y Tailwind CSS.
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-  - [AI Collaboration](#ai-collaboration)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+## Tabla de contenidos
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
+- [Descripción general](#descripción-general)
+- [Funcionalidades](#funcionalidades)
+- [Captura de pantalla](#captura-de-pantalla)
+- [Enlaces](#enlaces)
+- [Stack tecnológico](#stack-tecnológico)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Arquitectura](#arquitectura)
+- [Inicio rápido](#inicio-rápido)
+- [Scripts disponibles](#scripts-disponibles)
+- [Despliegue](#despliegue)
+- [Autor](#autor)
 
-## Overview
+## Descripción general
 
-### The challenge
+El reto consiste en construir un formulario multi-paso donde el usuario:
 
-Users should be able to:
+- Completa cada paso de la secuencia
+- Puede volver a un paso anterior para actualizar sus selecciones
+- Ve un resumen de sus selecciones antes de confirmar
+- Recibe mensajes de validación cuando un campo está vacío, el email no es válido o no se ha seleccionado un plan
+- Usa un layout adaptado a escritorio y móvil
 
-- Complete each step of the sequence
-- Go back to a previous step to update their selections
-- See a summary of their selections on the final step and confirm their order
-- View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
-- Receive form validation messages if:
-  - A field has been missed
-  - The email address is not formatted correctly
-  - A step is submitted, but no selection has been made
+### Pasos del formulario
 
-### Screenshot
+| Paso | Sidebar     | Contenido                                                                      |
+| ---- | ----------- | ------------------------------------------------------------------------------ |
+| 1    | YOUR INFO   | Información personal (nombre, email, teléfono)                                 |
+| 2    | SELECT PLAN | Selección de plan (Arcade, Advanced, Pro) con facturación mensual o anual      |
+| 3    | ADD-ONS     | Complementos opcionales (Online service, Larger storage, Customizable Profile) |
+| 4    | SUMMARY     | Resumen y confirmación                                                         |
+| 5    | —           | Pantalla de agradecimiento (`Thank you!`)                                      |
 
-![](./screenshot.jpg)
+### Layouts
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+- **Escritorio:** tarjeta con sidebar de progreso a la izquierda y contenido del paso a la derecha
+- **Móvil:** stepper horizontal en la parte superior y barra de navegación fija en la parte inferior
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+La especificación de diseño detallada está documentada en [`design.md`](./design.md).
 
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+## Funcionalidades
 
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+Implementado en el código actual:
 
-### Links
+- Navegación entre pasos con validación al avanzar (pasos 1 y 2)
+- Validación de campos personales con [Zod](https://zod.dev/) (`name`, `email`, `phone`)
+- Selección de plan con toggle mensual/anual y precios dinámicos
+- Selección múltiple de complementos
+- Resumen con total calculado según plan, complementos y periodo de facturación
+- Enlace «Change» en el resumen para volver al paso de selección de plan
+- Estados de hover, focus y error en campos e interactivos
+- Animaciones de transición entre pasos (`tailwind-animations`)
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+## Captura de pantalla
 
-## My process
+_Pendiente: agregar captura de pantalla._
 
-### Built with
+## Enlaces
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- **Repositorio:** [github.com/Mooenz/multi-step-form](https://github.com/Mooenz/multi-step-form)
+- **Sitio en vivo:** https://mooenz.github.io/multi-step-form/
+- **Solución en Frontend Mentor:** https://www.frontendmentor.io/solutions/multistep-form-qfFxErDz3_
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+## Stack tecnológico
 
-### What I learned
+| Tecnología                                               | Versión | Uso                                                  |
+| -------------------------------------------------------- | ------- | ---------------------------------------------------- |
+| [React](https://react.dev/)                              | 19      | UI                                                   |
+| [TypeScript](https://www.typescriptlang.org/)            | ~6.0    | Tipado estático                                      |
+| [Vite](https://vite.dev/)                                | 8       | Bundler y dev server                                 |
+| [Tailwind CSS](https://tailwindcss.com/)                 | 4       | Estilos                                              |
+| [Zod](https://zod.dev/)                                  | 4       | Validación de formulario                             |
+| [React Compiler](https://react.dev/learn/react-compiler) | —       | Optimización de renders (via `@vitejs/plugin-react`) |
+| [pnpm](https://pnpm.io/)                                 | 11      | Gestor de paquetes                                   |
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+## Estructura del proyecto
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
+src/
+├── App.tsx                    # Punto de entrada de la aplicación
+├── main.tsx
+├── global.css                 # Tokens de diseño y estilos globales
+├── font.css                   # Tipografía Ubuntu
+├── assets/                    # Iconos e imágenes de fondo
+├── constants/form-data.ts     # Planes, complementos y pasos
+├── lib/
+│   ├── schemas.ts             # Esquemas Zod y validación
+│   └── validation.ts
+├── types/form.ts              # Tipos del formulario
+└── components/
+    ├── form/                  # Layout, provider, navegación, sidebar
+    ├── steps/                 # Un componente por paso
+    └── ui/                    # Button, TextInput, PlanCard, AddonCard, etc.
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+
+## Arquitectura
+
+El estado del formulario se gestiona con un patrón de **compound components** y **Context**:
+
+- `FormProvider` centraliza el estado (`FormState`), las acciones (`FormActions`) y metadatos (`FormMeta`)
+- `useForm` consume el contexto desde los componentes hijos
+- Cada paso es un componente independiente renderizado dinámicamente según `state.step`
+- La validación se ejecuta al pulsar «Next Step» en los pasos 1 y 2
+
+## Inicio rápido
+
+### Requisitos
+
+- Node.js 22 (usado en CI)
+- pnpm 11
+
+### Instalación
+
+```bash
+pnpm install
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+### Desarrollo
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```bash
+pnpm dev
+```
 
-### Continued development
+### Build de producción
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+```bash
+pnpm build
+```
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+### Vista previa del build
 
-### Useful resources
+```bash
+pnpm preview
+```
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+## Scripts disponibles
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+| Script         | Descripción                                     |
+| -------------- | ----------------------------------------------- |
+| `pnpm dev`     | Inicia el servidor de desarrollo (Vite)         |
+| `pnpm build`   | Compila TypeScript y genera el build en `dist/` |
+| `pnpm preview` | Sirve el build de producción localmente         |
+| `pnpm lint`    | Ejecuta ESLint                                  |
 
-### AI Collaboration
+## Despliegue
 
-Describe how you used AI tools (if any) during this project. This helps demonstrate your ability to work effectively with AI assistants.
+El proyecto incluye un workflow de GitHub Actions (`.github/workflows/deploy.yml`) que:
 
-- What tools did you use (e.g., ChatGPT, Claude, GitHub Copilot)?
-- How did you use them (e.g., debugging, generating boilerplate, brainstorming solutions)?
-- What worked well? What didn't?
+- Se ejecuta en push a la rama `master` o manualmente (`workflow_dispatch`)
+- Construye con `VITE_BASE=/multi-step-form/ pnpm build` para publicar en la ruta del repositorio
+- Despliega el contenido de `dist/` en GitHub Pages
 
-**Note: Delete this note and the content above if you didn't use AI, or replace with your own experience.**
+## Autor
 
-## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- **GitHub:** [@Mooenz](https://github.com/Mooenz)
+- **Sitio web:** [mooenz.me](https://mooenz.me)
+- **Twitter / X:** [@Mooenz](https://x.com/MooenzDev)
