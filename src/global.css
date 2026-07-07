@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+@import 'tailwind-animations';
+
+:root {
+	--font-family-base: 'Ubuntu', sans-serif;
+
+	color-scheme: light;
+}
+
+@theme {
+	--color-primary: #483eff;
+	--color-primary-variant: #6259ff;
+	--color-on-primary: #ffffff;
+	--color-marine: #02295a;
+	--color-marine-muted: #473dff;
+	--color-marine-hover: #174A8B;
+	--color-accent-sky: #bee2fd;
+	--color-accent-lavender: #adbeff;
+	--color-accent-orange: #ffaf7e;
+	--color-accent-pink: #f9818e;
+	--color-accent-pink-deep: #e96170;
+	--color-neutral-caption: #9699ab;
+	--color-neutral-border: #d6d9e6;
+	--color-neutral-surface: #f8f9ff;
+	--color-page-background: #eef5ff;
+	--color-surface: #ffffff;
+	--color-error: #ee374a;
+
+	--font-size-body: 16px;
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-bold: 700;
+
+	--radius-md: 8px;
+	--radius-lg: 10px;
+
+	--shadow-card: 0 25px 50px -12px rgb(2 41 90 / 0.12);
+
+	--width-form: 940px;
+	--min-height-form: 568px;
+	--height-mobile-header: 172px;
+	--min-height-thank-you: 420px;
+}
+
+html {
+	font-family: var(--font-family-base);
+	font-size: var(--font-size-body);
+	background-color: var(--color-page-background);
+	color: var(--color-marine);
+}
+
+body {
+	width: 100%;
+	min-height: 100dvh;
+}
+
+#root {
+	width: 100%;
+	min-height: 100dvh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
